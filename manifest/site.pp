@@ -41,7 +41,11 @@ node slave1 {
     source => 'puppet:///modules/static/static.conf',
     notify => Service['httpd']
   }
+node 'slave1', 'slave2' {
   service{'httpd':
     ensure => running
   }
+ 
+ }
+
 }
