@@ -16,10 +16,10 @@ class dynamic_conf {
     ensure => file,
     source => 'puppet:///modules/dynamic/index.php'
     }
-  file {'/etc/httpd/conf/httpd.conf':
-    ensure => file,
-    source => 'puppet:///modules/dynamic/httpd.conf'
-   }
+ # file {'/etc/httpd/conf/httpd.conf':
+ #   ensure => file,
+ #   source => 'puppet:///modules/dynamic/httpd.conf'
+ #  }
   file {'/etc/httpd/conf.d/dynamic.conf':
     ensure => file,
     source => 'puppet:///modules/dynamic/dynamic.conf',
@@ -41,10 +41,10 @@ class static_conf {
     ensure => file,
     source => 'puppet:///modules/static/index.html'
    }
-  file {'/etc/httpd/conf/httpd.conf':
-    ensure => file,
-    source => 'puppet:///modules/static/httpd.conf'
-   }
+#  file {'/etc/httpd/conf/httpd.conf':
+#    ensure => file,
+#    source => 'puppet:///modules/static/httpd.conf'
+#   }
   file {'/etc/httpd/conf.d/static.conf':
     ensure => file,
     source => 'puppet:///modules/static/static.conf'
