@@ -11,6 +11,7 @@ class dynamic_conf {
   package {$package: ensure => 'installed'}
   file {'/var/www/dynamic/html':
     ensure => directory
+    recurse => true
     }
   file {'/var/www/dynamic/html/index.php':
     ensure => file,
@@ -36,6 +37,7 @@ class static_conf {
   package {$package: ensure => 'installed'} 
   file {'/var/www/static/html':
     ensure => directory
+    recurse => true
    }
   file {'/var/www/static/html/index.html':
     ensure => file,
