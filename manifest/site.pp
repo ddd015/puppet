@@ -43,7 +43,8 @@ node slave1 {
   }
 node 'slave1', 'slave2' {
   service{'httpd':
-    ensure => running
+    ensure => running, 
+  enable => true
   }
  }
 
