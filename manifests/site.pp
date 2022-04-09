@@ -9,11 +9,11 @@ node 'slave2' {
 class dynamic_conf {
   $package = ['httpd','php']
   package {$package: ensure => 'installed'}
-  file {'/var/www/dynamic/html':
+  file {'/var/www/html':
     ensure => directory
     recurse => true
     }
-  file {'/var/www/dynamic/html/index.php':
+  file {'/var/www/html/index.php':
     ensure => file,
     source => 'puppet:///modules/dynamic/index.php'
     }
@@ -35,11 +35,11 @@ class dynamic_conf {
 class static_conf {
   $package = ['httpd','php']
   package {$package: ensure => 'installed'} 
-  file {'/var/www/static/html':
+  file {'/var/www/html':
     ensure => directory
     recurse => true
    }
-  file {'/var/www/static/html/index.html':
+  file {'/var/www/html/index.html':
     ensure => file,
     source => 'puppet:///modules/static/index.html'
    }
