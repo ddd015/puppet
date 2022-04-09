@@ -12,7 +12,7 @@ class dynamic_conf {
   file {'/var/www/dynamic/html':
     ensure => directory
     }
-  file {'/var/www/dynamic/html':
+  file {'/var/www/dynamic/html/index.php':
     ensure => file,
     source => 'puppet:///modules/dynamic/index.php'
     }
@@ -37,7 +37,7 @@ class static_conf {
   file {'/var/www/static/html':
     ensure => directory
    }
-  file {'/var/www/static/html':
+  file {'/var/www/static/html/index.html':
     ensure => file,
     source => 'puppet:///modules/static/index.html'
    }
