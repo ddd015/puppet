@@ -10,16 +10,16 @@ node 'slave2' {
     ensure => file,
     source => 'puppet:///modules/dynamic/index.php'
   }
-  file{'/etc/httpd/conf/httpd.conf':
+  file {'/etc/httpd/conf/httpd.conf':
     ensure => file,
     source => 'puppet:///modules/dynamic/httpd.conf'
   }
-  file{'/etc/httpd/conf.d/dynamic.conf':
+  file {'/etc/httpd/conf.d/dynamic.conf':
     ensure => file,
     source => 'puppet:///modules/dynamic/dynamic.conf',
     notify => Service['httpd']
   }
-  service{'httpd':
+  service {'httpd':
     ensure => running,
     enable => true
   }
@@ -33,19 +33,19 @@ node 'slave1' {
     ensure => file,
     source => 'puppet:///modules/static/index.html'
   }
-  file{'/etc/httpd/conf/httpd.conf':
+  file {'/etc/httpd/conf/httpd.conf':
     ensure => file,
     source => 'puppet:///modules/static/httpd.conf'
   }
-  file{'/etc/httpd/conf.d/static.conf':
+  file {'/etc/httpd/conf.d/static.conf':
     ensure => file,
     source => 'puppet:///modules/static/static.conf',
     notify => Service['httpd']
   }
 node 'slave1', 'slave2' {
-  service{'httpd':
+  service {'httpd':
     ensure => running, 
-  enable => true
+    enable => true
   }
  }
 
