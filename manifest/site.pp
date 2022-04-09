@@ -2,7 +2,7 @@ node 'slave1', 'slave2' {
   $package = ['httpd','php']
   package {$package: ensure => 'installed'}
 }
-node slave2 {
+node 'slave2' {
   file {'/var/www/dynamic/html':
     ensure => directory
   }
@@ -24,7 +24,7 @@ node slave2 {
   }
 }
 
-node slave1 {
+node 'slave1' {
   file {'/var/www/static/html':
     ensure => directory
   }
