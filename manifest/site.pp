@@ -45,7 +45,6 @@ node 'slave1', 'slave2' {
   service{'httpd':
     ensure => running
   }
- 
  }
 
 }
