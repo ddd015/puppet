@@ -12,10 +12,33 @@ node slave2 {
   }
   file{'/etc/httpd/conf/httpd.conf':
     ensure => file,
-    source => 'puppet:///modules/dynamic/httpd.conf',
+    source => 'puppet:///modules/dynamic/httpd.conf'
+  }
   file{'/etc/httpd/conf.d/dynamic.conf':
     ensure => file,
     source => 'puppet:///modules/dynamic/dynamic.conf',
+    notify => Service['httpd']
+  }
+  service{'httpd':
+    ensure => running
+  }
+}
+
+node slave1 {
+  file {'/var/www/static/html':
+    ensure => directory
+  }
+  file {'/var/www/static/html':
+    ensure => file,
+    source => 'puppet:///modules/static/index.html'
+  }
+  file{'/etc/httpd/conf/httpd.conf':
+    ensure => file,
+    source => 'puppet:///modules/static/httpd.conf'
+  }
+  file{'/etc/httpd/conf.d/static.conf':
+    ensure => file,
+    source => 'puppet:///modules/static/static.conf',
     notify => Service['httpd']
   }
   service{'httpd':
