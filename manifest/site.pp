@@ -20,7 +20,8 @@ node 'slave2' {
     notify => Service['httpd']
   }
   service{'httpd':
-    ensure => running
+    ensure => running,
+    enable => true
   }
 }
 
