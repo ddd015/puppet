@@ -20,10 +20,10 @@ class minecraft {
    ensure => file,
    source => 'puppet:///modules/minecraft/minecraft.service'
    }
- ~> service { 'nginx':   # описываем сервис nginx
-        ensure => running,   # он должен быть запущен
-        enable => true,   # его нужно запускать автоматически при старте системы
-    }
- 
+ ~> service { 'minecraft':
+        ensure => running,
+        enable => true
+   }
+   вроде минекрафт запущен, нужны тесты
 
 }
