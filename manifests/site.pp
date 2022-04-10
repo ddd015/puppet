@@ -47,10 +47,13 @@ class static_conf {
 #   }
   file {'/etc/httpd/conf.d/static.conf':
     ensure => file,
-    source => 'puppet:///modules/static/static.conf'
+    source => 'puppet:///modules/static/static.conf',
+    notify => Service['httpd']
    }
   service {'httpd':
     ensure => running, 
     enable => true
-  }  
+  }
+  file {'/root/readme'}
+  ensure => absent
 }
