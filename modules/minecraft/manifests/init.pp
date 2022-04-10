@@ -16,9 +16,14 @@ class minecraft {
    ensure => file,
    content => 'eula=true'
    }
- file {'/etc/systemd/system/mineserver.service':
+ file {'/etc/systemd/system/minecraft.service':
    ensure => file,
    source => 'puppet:///modules/minecraft/minecraft.service'
    }
-  
+ ~> service { 'nginx':   # описываем сервис nginx
+        ensure => running,   # он должен быть запущен
+        enable => true,   # его нужно запускать автоматически при старте системы
+    }
+ 
+
 }
