@@ -29,8 +29,9 @@ class dynamic_conf {
     ensure => running,
     enable => true
    }
-  file {'/root/readme'}
+  file {'/root/readme':
   ensure => absent
+  }
 }
 
 class static_conf {
@@ -56,6 +57,7 @@ class static_conf {
     ensure => running, 
     enable => true
   }
-  file {'/root/readme'}
+  file {'/root/readme':
   ensure => absent
+  }
 }
