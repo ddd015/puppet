@@ -8,7 +8,7 @@ node 'slave2' {
 
 class dynamic_conf {
   $package = ['httpd','php']
-  package {$package: ensure => 'installed'}
+  package {$package: ensure => 'latest'}
   file {'/var/www/html':
     ensure => directory
     }
