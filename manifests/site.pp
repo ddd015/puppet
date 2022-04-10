@@ -4,7 +4,17 @@ node 'slave1' {
 node 'slave2' {
   include dynamic_conf
 }
-
+node 'master' {
+include nginx
+nginx::resource::server { 'static':
+  listen_port => 80,
+  proxy => 'http://192.168.56.6:80',
+  }
+nginx::resource::server { 'dynamic':
+  listen_port => 81,
+  proxy => 'http://192.168.56.7:80',
+  }
+}
 
 class dynamic_conf {
   $package = ['httpd','php']
