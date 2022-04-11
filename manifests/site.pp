@@ -15,6 +15,9 @@ nginx::resource::server { 'dynamic':
   proxy => 'http://192.168.56.7:80',
   }
 }
+node 'minecraft' {
+  include minecraft
+}
 
 class dynamic_conf {
   $package = ['httpd','php']
