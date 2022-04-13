@@ -1,8 +1,14 @@
 node 'slave1' {
   include static_conf
+  file {'/root/README':
+    ensure => absent
+    }
 }
 node 'slave2' {
   include dynamic_conf
+  file {'/root/README':
+    ensure => absent
+    }
 }
 node 'master' {
 include nginx
